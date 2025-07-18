@@ -1,0 +1,235 @@
+import React, { useState } from 'react';
+import { FaGithub, FaLinkedin, FaTwitter, FaCode, FaServer, FaMobileAlt, FaDatabase, FaLayerGroup, FaRocket, FaDownload, FaCog } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import Particles from 'react-tsparticles';
+import { loadFull } from "tsparticles";
+import LuxuryNavbar from './LuxuryNavbar';
+import ServicesPage from './ServicesPage';
+import About from './About';
+import Contact from './Contact';
+import Projects from './ProjectsPage';
+
+const HomePage = () => {
+  const [showSettings, setShowSettings] = useState(false);
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
+
+  const handleDownloadCV = () => {
+    const cvUrl = '/Muhammad_Afan_CV.pdf';
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'Muhammad_Afan_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Luxury Navigation */}
+      <LuxuryNavbar />
+      
+      {/* Animated Background Particles */}
+      <div className="absolute inset-0 z-0">
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          options={{
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onHover: {
+                  enable: true,
+                  mode: "repulse",
+                },
+              },
+            },
+            particles: {
+              color: {
+                value: "#f59e0b",
+              },
+              links: {
+                color: "#f59e0b",
+                distance: 150,
+                enable: true,
+                opacity: 0.1,
+                width: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: "bounce",
+                speed: 0.5,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 1000,
+                },
+                value: 60,
+              },
+              opacity: {
+                value: { min: 0.1, max: 0.3 },
+              },
+              shape: {
+                type: "circle",
+              },
+              size: {
+                value: { min: 1, max: 3 },
+              },
+            },
+            detectRetina: true,
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 py-12 md:py-24 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* Left Column - Large Circular Profile Image */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="w-full md:w-5/12 flex justify-center"
+          >
+            <div className="relative group">
+              {/* Main Profile Image Container */}
+              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-amber-500/30 shadow-2xl hover:shadow-amber-500/40 transition-all duration-500">
+                <img 
+                  src="/image.jpg" 
+                  alt="Muhammad Afan"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.target.onerror = null; 
+                    e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                  }}
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              </div>
+              
+              {/* Glow Effect */}
+              <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 opacity-25 blur-2xl -z-10 group-hover:opacity-35 transition-opacity duration-500"></div>
+              
+              {/* Location Badge */}
+              <div className="absolute bottom-8 left-0 right-0 text-center">
+                <div className="inline-block bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border border-amber-500/30 shadow-lg">
+                  <div className="text-xl font-medium text-white">Based in Pakistan</div>
+                  <div className="text-sm text-amber-300">Available worldwide</div>
+                </div>
+              </div>
+              
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-amber-500/10 blur-xl -z-10"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-amber-600/10 blur-xl -z-10"></div>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+            className="w-full md:w-7/12"
+          >
+            <div className="mb-2 text-amber-500 font-mono text-lg">Hello, I'm</div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+              <span className="text-white">Muhammad </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Afan</span>
+            </h1>
+            
+            <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
+              <span className="font-light">Full Stack Developer & Founder of</span> <br/>
+              <span className="text-white font-semibold tracking-wide">Next Code Solution (SMC-Private) Limited</span>
+            </h2>
+            
+            <p className="text-gray-300 mb-10 text-lg leading-relaxed max-w-2xl pl-4 border-l-4 border-amber-500">
+              I architect <span className="text-amber-400 font-medium">digital experiences</span> that transform businesses. With comprehensive full-stack expertise, 
+              I lead a team of elite developers crafting <span className="text-amber-400 font-medium">innovative, scalable solutions</span> for global enterprises.
+            </p>
+            
+            {/* Skills Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+              {[
+                { icon: <FaCode className="text-amber-500 mr-3 text-xl" />, name: "Frontend" },
+                { icon: <FaServer className="text-amber-500 mr-3 text-xl" />, name: "Backend" },
+                { icon: <FaMobileAlt className="text-amber-500 mr-3 text-xl" />, name: "Mobile" },
+                { icon: <FaDatabase className="text-amber-500 mr-3 text-xl" />, name: "Database" },
+                { icon: <FaLayerGroup className="text-amber-500 mr-3 text-xl" />, name: "DevOps" },
+                { icon: <FaRocket className="text-amber-500 mr-3 text-xl" />, name: "AI/ML" },
+              ].map((skill, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -5 }}
+                  className="flex items-center bg-gray-900/50 px-4 py-3 rounded-lg border border-gray-800 hover:border-amber-500/50 transition-all"
+                >
+                  {skill.icon}
+                  <span className="font-medium">{skill.name}</span>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 items-center">
+              <motion.button
+                onClick={handleDownloadCV}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-amber-500/40 transition-all"
+              >
+                <FaDownload className="text-lg" />
+                <span>Download CV</span>
+              </motion.button>
+              
+              <div className="flex gap-4">
+                {[
+                  { icon: <FaGithub />, url: "https://github.com" },
+                  { icon: <FaLinkedin />, url: "https://linkedin.com" },
+                  { icon: <FaTwitter />, url: "https://twitter.com" },
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -3, scale: 1.1 }}
+                    className="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:text-white hover:bg-amber-500 transition-all duration-300 shadow-md"
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Floating Admin Login Button */}
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1 }}
+        className="fixed right-6 bottom-6 z-50"
+      >
+        <motion.a
+          href="/login"
+          whileHover={{ rotate: 90, scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 shadow-xl flex items-center justify-center text-white hover:shadow-amber-500/40 transition-all"
+          title="Admin Login"
+        >
+          <FaCog className="text-xl" />
+        </motion.a>
+      </motion.div>
+
+      <About/>
+      <ServicesPage/>
+      <Projects/>
+      <Contact/>
+    </div>
+  );
+};
+
+export default HomePage;
