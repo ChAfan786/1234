@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaCode, FaServer, FaMobileAlt, FaDatabase, FaLayerGroup, FaRocket, FaDownload, FaCog } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaCode, FaServer, FaMobileAlt, FaDatabase, FaLayerGroup, FaRocket, FaDownload, FaCog } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
@@ -185,9 +185,9 @@ const HomePage = () => {
               
               <div className="flex gap-4">
                 {[
-                  { icon: <FaGithub />, url: "https://github.com" },
-                  { icon: <FaLinkedin />, url: "https://linkedin.com" },
-                  { icon: <FaTwitter />, url: "https://twitter.com" },
+                  { icon: <FaGithub />, url: "https://github.com/ChAfan786" },
+                  { icon: <FaLinkedin />, url: "linkedin.com/in/muhammad-afan-" },
+                  { icon: <FaFacebook />, url: "https://www.facebook.com/chafan786" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}

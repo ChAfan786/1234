@@ -10,13 +10,6 @@ import ServicesPage from './pages/ServicesPage';
 import CookiePolicy from './pages/CookiePolicy';
 import ProjectsPage from './pages/ProjectsPage';
 import Contact from './pages/Contact';
-import AdminDashboard from './Admin/AdminDashboard';
-import LoginPage from './Admin/LoginPage';
-
-const PrivateRoute = ({ children }) => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  return isLoggedIn ? children : <Navigate to="/login" />;
-};
 
 const App = () => {
   return (
@@ -33,8 +26,6 @@ const App = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/admin' element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
         </Routes>
 
         <Footer />

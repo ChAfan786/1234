@@ -30,10 +30,10 @@ const Footer = () => {
               
               <div className="flex space-x-5">
                 {[
-                  { icon: <FaFacebook className="text-lg" />, url: "https://facebook.com" },
+                  { icon: <FaFacebook className="text-lg" />, url: "https://www.facebook.com/chafan786" },
                   { icon: <FaTwitter className="text-lg" />, url: "https://twitter.com" },
-                  { icon: <FaLinkedin className="text-lg" />, url: "https://linkedin.com" },
-                  { icon: <FaGithub className="text-lg" />, url: "https://github.com" },
+                  { icon: <FaLinkedin className="text-lg" />, url: "linkedin.com/in/muhammad-afan-" },
+                  { icon: <FaGithub className="text-lg" />, url: "https://github.com/ChAfan786" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
