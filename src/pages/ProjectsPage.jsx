@@ -95,26 +95,26 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 text-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12"
         >
           <div className="relative inline-block">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
               My Projects
             </h1>
-            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-amber-400/30 via-amber-300/50 to-amber-500/30 rounded-full"></div>
+            <div className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-amber-400/30 via-amber-300/50 to-amber-500/30 rounded-full"></div>
           </div>
-          <p className="text-gray-400 max-w-2xl mx-auto mt-4">
+          <p className="text-gray-400 max-w-2xl mx-auto mt-3 text-sm sm:text-base">
             Here are some of my recent projects. Click on the demo or code buttons to explore them further.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -126,15 +126,15 @@ const Projects = () => {
               onMouseLeave={() => setIsHovered(null)}
             >
               {project.featured && (
-                <div className="absolute -top-3 -right-3 z-10 bg-amber-500 text-gray-900 px-2 py-1 rounded-full text-xs font-bold flex items-center shadow-lg">
+                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-10 bg-amber-500 text-gray-900 px-2 py-1 rounded-full text-xs font-bold flex items-center shadow-lg">
                   <FiStar className="mr-1" /> Featured
                 </div>
               )}
 
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 to-amber-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 to-amber-600/10 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-              <div className="relative h-full bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-800/50 shadow-xl hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden">
+              <div className="relative h-full bg-gray-900/70 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-gray-800/50 shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-300">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={currentImageIndex[index] || 0}
@@ -152,34 +152,34 @@ const Projects = () => {
 
                   {project.images.length > 1 && (
                     <>
-                      <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 flex items-center justify-between p-2 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <button 
                           onClick={(e) => {
                             e.stopPropagation();
                             prevImage(index);
                           }}
-                          className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110"
+                          className="bg-black/50 hover:bg-black/70 text-white p-1 sm:p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110"
                           aria-label="Previous image"
                         >
-                          <FiChevronLeft className="text-xl" />
+                          <FiChevronLeft className="text-lg sm:text-xl" />
                         </button>
                         <button 
                           onClick={(e) => {
                             e.stopPropagation();
                             nextImage(index);
                           }}
-                          className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110"
+                          className="bg-black/50 hover:bg-black/70 text-white p-1 sm:p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110"
                           aria-label="Next image"
                         >
-                          <FiChevronRight className="text-xl" />
+                          <FiChevronRight className="text-lg sm:text-xl" />
                         </button>
                       </div>
 
-                      <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                      <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 flex justify-center space-x-1 sm:space-x-2">
                         {project.images.map((_, imgIndex) => (
                           <button
                             key={imgIndex}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${(currentImageIndex[index] || 0) === imgIndex ? 'bg-amber-400 w-6' : 'bg-gray-600/70 w-3 hover:bg-gray-500'}`}
+                            className={`h-1 sm:h-1.5 rounded-full transition-all duration-300 ${(currentImageIndex[index] || 0) === imgIndex ? 'bg-amber-400 w-4 sm:w-6' : 'bg-gray-600/70 w-2 sm:w-3 hover:bg-gray-500'}`}
                             onClick={(e) => {
                               e.stopPropagation();
                               goToImage(index, imgIndex);
@@ -192,9 +192,9 @@ const Projects = () => {
                   )}
                 </div>
 
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h2 className="text-xl font-semibold text-white">
+                    <h2 className="text-lg sm:text-xl font-semibold text-white">
                       {project.title}
                     </h2>
                     {project.category && (
@@ -204,19 +204,19 @@ const Projects = () => {
                     )}
                   </div>
 
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed">
                     {project.description}
                   </p>
 
-                  <div className="flex space-x-3 mb-4">
+                  <div className="flex space-x-2 sm:space-x-3 mb-3 sm:mb-4">
                     {project.liveDemoLink && (
                       <a 
                         href={project.liveDemoLink} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center justify-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex-1 text-center"
+                        className="flex items-center justify-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex-1 text-center"
                       >
-                        <FiExternalLink className="mr-2" /> Live Demo
+                        <FiExternalLink className="mr-1 sm:mr-2 text-xs sm:text-sm" /> Live Demo
                       </a>
                     )}
                     {project.githubLink && (
@@ -224,18 +224,18 @@ const Projects = () => {
                         href={project.githubLink} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/80 border border-gray-700/50 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex-1 text-center"
+                        className="flex items-center justify-center bg-gray-800/70 hover:bg-gray-700/80 border border-gray-700/50 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex-1 text-center"
                       >
-                        <FiGithub className="mr-2" /> View Code
+                        <FiGithub className="mr-1 sm:mr-2 text-xs sm:text-sm" /> View Code
                       </a>
                     )}
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
                     {project.techStack.map((tag, i) => (
                       <span 
                         key={i} 
-                        className="bg-gray-800/80 text-xs text-amber-300 px-3 py-1 rounded-full border border-gray-700/50 hover:bg-gray-800 hover:text-amber-200 transition-colors"
+                        className="bg-gray-800/80 text-xs text-amber-300 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-gray-700/50 hover:bg-gray-800 hover:text-amber-200 transition-colors"
                       >
                         {tag}
                       </span>

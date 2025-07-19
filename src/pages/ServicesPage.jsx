@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const ServicesPage = () => {
   const services = [
     {
-      icon: <FaCode className="text-4xl mb-4 text-amber-400" />,
+      icon: <FaCode className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-amber-400" />,
       title: "Web Development",
       description: "Custom, responsive websites with modern frameworks like React, Next.js, and Vue.js. We create blazing fast, SEO-optimized web applications.",
       highlights: [
@@ -16,7 +16,7 @@ const ServicesPage = () => {
       ]
     },
     {
-      icon: <FaMobileAlt className="text-4xl mb-4 text-amber-400" />,
+      icon: <FaMobileAlt className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-amber-400" />,
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications for iOS and Android with flawless performance and intuitive UX.",
       highlights: [
@@ -27,7 +27,7 @@ const ServicesPage = () => {
       ]
     },
     {
-      icon: <FaServer className="text-4xl mb-4 text-amber-400" />,
+      icon: <FaServer className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-amber-400" />,
       title: "Backend Development",
       description: "Robust server-side solutions with Node.js, Python, Java, and .NET. Secure, scalable architecture for your business needs.",
       highlights: [
@@ -38,7 +38,7 @@ const ServicesPage = () => {
       ]
     },
     {
-      icon: <FaCloud className="text-4xl mb-4 text-amber-400" />,
+      icon: <FaCloud className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-amber-400" />,
       title: "Cloud Solutions",
       description: "End-to-end cloud services including migration, management, and optimization on AWS, Azure, and Google Cloud.",
       highlights: [
@@ -49,7 +49,7 @@ const ServicesPage = () => {
       ]
     },
     {
-      icon: <FaChartLine className="text-4xl mb-4 text-amber-400" />,
+      icon: <FaChartLine className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-amber-400" />,
       title: "Digital Transformation",
       description: "Comprehensive strategy to modernize your business with cutting-edge digital technologies and processes.",
       highlights: [
@@ -60,7 +60,7 @@ const ServicesPage = () => {
       ]
     },
     {
-      icon: <FaShieldAlt className="text-4xl mb-4 text-amber-400" />,
+      icon: <FaShieldAlt className="text-3xl sm:text-4xl mb-3 sm:mb-4 text-amber-400" />,
       title: "Cyber Security",
       description: "Enterprise-grade security solutions to protect your digital assets and ensure compliance with regulations.",
       highlights: [
@@ -73,24 +73,24 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto text-center mb-20">
+      <div className="max-w-7xl mx-auto text-center mb-12 sm:mb-16 md:mb-20">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
         >
           Our <span className="text-amber-400">Premium</span> Services
         </motion.h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
           Next Code Solution Private Limited delivers cutting-edge technology solutions to transform your business and accelerate growth.
         </p>
       </div>
 
       {/* Services Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
         {services.map((service, index) => (
           <motion.div
             key={index}
@@ -98,19 +98,19 @@ const ServicesPage = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -10 }}
-            className="bg-gray-900 rounded-xl p-8 border border-gray-800 hover:border-amber-400 transition-all duration-300 group"
+            className="bg-gray-900 rounded-lg sm:rounded-xl p-6 sm:p-8 border border-gray-800 hover:border-amber-400 transition-all duration-300 group"
           >
             <div className="flex flex-col h-full">
               {service.icon}
-              <h3 className="text-2xl font-bold mb-4 group-hover:text-amber-400 transition-colors">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 group-hover:text-amber-400 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-300 mb-6 flex-grow">{service.description}</p>
-              <ul className="space-y-2">
+              <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 flex-grow">{service.description}</p>
+              <ul className="space-y-1 sm:space-y-2">
                 {service.highlights.map((item, i) => (
                   <li key={i} className="flex items-start">
-                    <span className="text-amber-400 mr-2">✓</span>
-                    <span className="text-gray-300">{item}</span>
+                    <span className="text-amber-400 mr-2 text-sm sm:text-base">✓</span>
+                    <span className="text-gray-300 text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
